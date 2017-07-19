@@ -9,11 +9,12 @@ FROM scorpil/rust:latest
 # Maintainer of this project.
 MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
 
-# Install Node.js.
+# Install Node.js and UPX (for Rust core executable).
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN apt-get update && apt-get install -y nodejs
+RUN apt-get update && apt-get install -y nodejs upx-ucl
 RUN echo "node $(node --version)" && echo "npm $(npm --version)"
 RUN rustc --version && cargo --version
+RUN upx --version
 
 # Expose the app on port 8075 ("BOTS").
 EXPOSE 8075
