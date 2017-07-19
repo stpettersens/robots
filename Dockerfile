@@ -31,7 +31,10 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 
 # Install dependencies for app.
-RUN npm install --production
+RUN npm install 
+#--production
+
+RUN npm run dist
 
 # Build Rust core program -> `robots`.
 RUN npm run build
