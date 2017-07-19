@@ -9,9 +9,6 @@ FROM scorpil/rust:latest
 # Maintainer of this project.
 MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
 
-# Set as production environment.
-ENV NODE_ENV=production
-
 # Install Node.js.
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get update && apt-get install -y nodejs
