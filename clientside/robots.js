@@ -11,4 +11,4 @@ function submitRobots () {
   }
 }
 // Invoked for standard validation; removed in production:
-submitRobots() 
+submitRobots()
