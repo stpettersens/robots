@@ -50,7 +50,7 @@ if (process.env !== 'production') {
 
   gulp.task('js', function () {
     return gulp.src('clientside/*.js')
-    .pipe(removeLine({'robots.js': [13]}))
+    .pipe(removeLine({'robots.js': [14]}))
     .pipe(uglify())
     .pipe(jsmin())
     .pipe(trimLines())
