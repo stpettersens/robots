@@ -4,7 +4,8 @@
 #
 
 # Use streamlined Ubuntu image based on 16.04 LTS as base.
-FROM phusion/baseimage:latest
+#FROM phusion/baseimage:latest
+FROM dolphm/ubuntu-latest-rust-nightly:latest
 
 # Maintainer of this project.
 MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
