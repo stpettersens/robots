@@ -13,7 +13,7 @@ MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
 #ENV NODE_ENV=production
 
 # Add cargo to PATH variable.
-ENV PATH="~/bin/cargo:${PATH}"
+ENV PATH="~/.cargo/bin:${PATH}"
 
 # Install Node.js and Rust.
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
