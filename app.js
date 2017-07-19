@@ -1,5 +1,10 @@
 'use strict'
+/*
+Robots parser service written with Rust and JavaScript (Node.js + Express.js + Handlebars.js).
+Copyright (c) 2017 Sam Saint-Pettersen.
 
+Released under the MIT License.
+*/
 const express = require('express')
 const exphbs = require('express-handlebars')
 const path = require('path')

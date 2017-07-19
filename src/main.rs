@@ -1,3 +1,9 @@
+/*
+Robots parser service written with Rust and JavaScript (Node.js + Express.js + Handlebars.js).
+Copyright (c) 2017 Sam Saint-Pettersen.
+
+Released under the MIT License.
+*/
 mod robots;
 extern crate iron;
 extern crate params;
