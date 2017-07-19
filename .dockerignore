@@ -1,0 +1,11 @@
+clientside/
+core/robots.exe
+core/robots
+node_modules/
+public/css/*.css
+public/css/dist/*.css
+public/js/*.js
+public/js/dist/*.js
+target/
+imports.js
+.dummy

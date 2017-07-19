@@ -1,0 +1,9 @@
+/node_modules/
+public/css/*.css
+public/css/dist/*.css
+public/js/*.js
+public/js/dist/*.js
+/target/
+**/*.rs.bk
+core/robots
+core/robots.exe

@@ -1,0 +1,4 @@
+The built core Rust robots parsing program will be output here 
+when `npm run build` is triggered.
+
+This file is included for Git; to add the core/ subdir.

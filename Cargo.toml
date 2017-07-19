@@ -1,0 +1,10 @@
+[package]
+name = "robots"
+version = "0.1.0"
+description = "Parse robots.txt files from a URL."
+authors = ["Sam Saint-Pettersen <s.stpettersen+github@gmail.com>"]
+
+[dependencies]
+iron = "0.5.*"
+params = "0.6.0"
+regex = "0.2.2"
