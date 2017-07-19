@@ -21,7 +21,8 @@ RUN apt-get update && apt-get install -y nodejs
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 RUN echo "node $(node --version)" && echo "npm $(npm --version)"
 #RUN whereis rustc && whereis cargo
-RUN export PATH=/home/root/.cargo/bin:$PATH && rustc --version && cargo --version
+#RUN export PATH=/home/root/.cargo/bin:$PATH && rustc --version && cargo --version
+RUN /home/root/.cargo/bin/rustc --version && /home/root/.cargo/bin/cargo --version
 
 # Expose the app on port 8075 ("BOTS").
 EXPOSE 8075
