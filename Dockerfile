@@ -28,14 +28,19 @@ WORKDIR /usr/src/app
 # Bundle app src
 COPY . /usr/src/app
 
-# Install dependencies for app.
-RUN npm install --production
+# Install all dependencies for app.
+RUN npm install
 
 # Deploy clientside JavaScript + CSS.
 RUN npm run dist
 
 # Build Rust core program -> `robots`.
 RUN npm run build
+
+# Clobber node_modules and install
+# only production dependencies.
+RUN rm -r -f node_modules
+RUN npm install --production
 
 # Serve app.
 CMD echo "done!"
