@@ -3,16 +3,18 @@
 # robots
 #
 
-# Use Docker optimized Ubuntu 16.04 LTS as base.
-FROM phusion/baseimage:latest
+# Use debian:jesse with Rust preinstalled as base.
+FROM scorpil/rust:latest
 
 # Maintainer of this project.
 MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
 
-# Install Node.js.
+# Install Node.js and UPX (for Rust core executable).
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN apt-get update && apt-get install -y nodejs
+RUN apt-get update && apt-get install -y nodejs upx-ucl
 RUN echo "node $(node --version)" && echo "npm $(npm --version)"
+RUN rustc --version && cargo --version
+RUN upx --version
 
 # Expose the app on port 8075 ("BOTS").
 EXPOSE 8075
@@ -35,7 +37,7 @@ RUN npm run build
 
 # Clobber node_modules/ and clientside/;
 # install only production dependencies.
-RUN rm -r -f node_modules/
+RUN rm -r -f node_modules
 RUN rm -r -f clientside/
 RUN npm install --production
 

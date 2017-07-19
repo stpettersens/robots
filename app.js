@@ -19,9 +19,19 @@ app.get('/', function (req, res, next) {
   res.render('index')
 })
 
+app.get('/robots.txt', function (req, res) {
+  res.setHeader('Content-Type', 'text/plain')
+  let robots = []
+  robots.push('User-agent: *')
+  robots.push('Disallow: /')
+  robots.push('\n')
+  res.send(robots.join('\n'))
+})
+
 app.get('/submit', function (req, res) {
   parser.parseRobotsUrl(req.query.url, function (robots) {
     parser.parseRobotData(req.query.url, robots, function (data) {
+      res.setHeader('Content-Type', 'text/plain') // -> application/json
       res.send(data)
     })
   })
