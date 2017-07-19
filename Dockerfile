@@ -10,7 +10,7 @@ FROM phusion/baseimage:latest
 MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
 
 # Set as production environment.
-ENV NODE_ENV=production
+#ENV NODE_ENV=production
 
 # Install Node.js and Rust.
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
