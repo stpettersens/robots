@@ -12,6 +12,9 @@ MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
 # Set as production environment.
 #ENV NODE_ENV=production
 
+# Add cargo to PATH variable.
+ENV PATH="~/bin/cargo:${PATH}"
+
 # Install Node.js and Rust.
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get update && apt-get install -y nodejs
