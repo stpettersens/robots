@@ -10,4 +10,5 @@ function submitRobots () {
     window.alert('Provided URL should end with "/robots.txt".')
   }
 }
-submitRobots(null)
+// Invoked for standard validation; removed in production:
+submitRobots() 
