@@ -14,7 +14,7 @@ MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
 
 # Install Node.js and Rust.
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN apt update && apt install -y nodejs
+RUN apt-get update && apt-get install -y nodejs
 RUN curl https://sh.rustup.rs -sSf
 RUN echo "node $(node --version)" && echo "npm $(npm --version)"
 RUN echo "Gulp\n$(gulp --version)"
