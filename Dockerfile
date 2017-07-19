@@ -34,6 +34,8 @@ COPY . /usr/src/app
 RUN npm install 
 #--production
 
+# Display Gulp version.
+RUN echo "Gulp:\n$(gulp --version)"
 RUN npm run dist
 
 # Build Rust core program -> `robots`.
