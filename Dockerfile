@@ -10,9 +10,9 @@ FROM scorpil/rust:latest
 MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
 
 # Set as production environment.
-#ENV NODE_ENV=production
+ENV NODE_ENV=production
 
-# Install Node.js and Rust.
+# Install Node.js.
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get update && apt-get install -y nodejs
 RUN echo "node $(node --version)" && echo "npm $(npm --version)"
@@ -29,9 +29,9 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 
 # Install dependencies for app.
-RUN npm install 
-#--production
+RUN npm install --production
 
+# Deploy clientside JavaScript + CSS.
 RUN npm run dist
 
 # Build Rust core program -> `robots`.
