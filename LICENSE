@@ -1,5 +1,4 @@
-MIT License
-
+Robots parser service written with Rust and JavaScript (Node.js + Express.js + Handlebars.js).
 Copyright (c) 2017 Sam Saint-Pettersen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
