@@ -30,9 +30,6 @@ RUN npm install
 # Deploy clientside JavaScript + CSS.
 RUN npm run dist
 
-# Build Rust core program -> `robots`.
-RUN npm run build
-
 # Clobber node_modules/ and clientside/;
 # install only production dependencies.
 RUN rm -r -f node_modules/
