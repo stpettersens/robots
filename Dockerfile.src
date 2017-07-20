@@ -1,6 +1,6 @@
 #
-# Dockerfile for robots service:
-# robots
+# Dockerfile for robots service (building Rust core program from src):
+# robots_src
 #
 
 # Use debian:jesse with Rust preinstalled as base.
