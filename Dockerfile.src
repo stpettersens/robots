@@ -5,6 +5,7 @@
 
 # Use debian:jesse with Rust preinstalled as base.
 FROM scorpil/rust:latest
+# FROM stpettersens/docker-rust:latest
 
 # Maintainer of this project.
 MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
