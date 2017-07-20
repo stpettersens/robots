@@ -5,7 +5,7 @@
 
 # Use Docker optimized Ubuntu 16.04 LTS as base.
 FROM phusion/baseimage:latest
-# FROM stpettersens/docker-nodejs:latest
+# FROM saintpettersens/docker-nodejs:latest
 
 # Maintainer of this project.
 MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
