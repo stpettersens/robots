@@ -37,4 +37,4 @@ RUN rm -r -f clientside/
 RUN npm install --production
 
 # Serve app.
-RUN ./core/robots | node app.js
+CMD ./core/robots | node app.js
