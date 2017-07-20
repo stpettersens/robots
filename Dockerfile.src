@@ -3,7 +3,7 @@
 # robots
 #
 
-# Use debian:jesse with Rust preinstalled as base.
+# Use Rust preinstalled container as base.
 FROM stpettersens/docker-rust:latest
 
 # Maintainer of this project.
