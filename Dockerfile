@@ -3,7 +3,7 @@
 # robots
 #
 
-# Use Node.js preinstalled container as base.
+# Use Node.js preinstalled image as base.
 FROM saintpettersens/docker-nodejs:latest
 
 # Maintainer of this project.
