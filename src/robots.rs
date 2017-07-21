@@ -28,4 +28,8 @@ impl RobotsFile {
     pub fn get_lines(&self) -> &str {
         &self.lines
     }
+    pub fn get_insert_sql(&self) -> String {
+        format!("INSERT INTO robots VALUES (\"{}\", \"{}\", {})", 
+        &self.id, &self.url, &self.lines)
+    }
 }

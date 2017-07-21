@@ -7,3 +7,4 @@ public/js/dist/*.js
 **/*.rs.bk
 core/robots
 core/robots.exe
+db/*.db

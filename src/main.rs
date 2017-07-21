@@ -25,7 +25,7 @@ fn handle_robots(req: &mut Request) -> IronResult<Response> {
     &format!("{:?}", map["id"]), 
     &format!("{:?}", map["url"]),
     &format!("{:?}", map["lines"]));
-    //process_robots(&robots);*/
+    //process_robots(&robots);
     Ok(Response::with((status::Ok, format!("{:?}", robots))))
 }
 

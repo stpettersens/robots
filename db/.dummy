@@ -1,0 +1,4 @@
+The built core Rust robots parsing program (robots)
+will be output an SQLite database (robots.sql) here.
+
+This file is included for Git; to add the db/ subdir.

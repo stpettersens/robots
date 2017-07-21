@@ -5,3 +5,4 @@ imports.js
 *.sh
 *.prebuilt
 *.src
+*.db
