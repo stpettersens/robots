@@ -1,8 +1,8 @@
 /* global $ */
 'use strict'
 window.onload = function () {
-  $('meta[name=ownrobots').attr
-  ('content', 'http://' + window.location.hostname + '/robots.txt')
+  const host = window.location.hostname
+  $('meta[name=ownrobots').attr('content', 'http://' + host + '/robots.txt')
 }
 function submitRobots () {
   var url = $('#url').val()
