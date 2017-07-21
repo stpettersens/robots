@@ -1,9 +1,5 @@
 /* global $ */
 'use strict'
-window.onload = function () {
-  const host = window.location.hostname
-  $('meta[name=ownrobots').attr('content', 'http://' + host + '/robots.txt')
-}
 function submitRobots () {
   var url = $('#url').val()
   if (url.search(/\/robots.txt$/) !== -1) {
