@@ -9,9 +9,9 @@ FROM scorpil/rust:nightly
 # Maintainer of this project.
 MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
 
-# Install Node.js and UPX (for Rust core executable).
+# Install dig, Node.js and UPX (for Rust core executable).
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN apt-get update && apt-get install -y nodejs upx-ucl
+RUN apt-get update && apt-get install -y dnsutils nodejs upx-ucl
 RUN echo "node $(node --version)" && echo "npm $(npm --version)"
 RUN rustc --version && cargo --version
 RUN upx --version
@@ -25,6 +25,9 @@ WORKDIR /usr/src/app
 
 # Bundle app src
 COPY . /usr/src/app
+
+# Configure hostname for own robots.txt file.
+RUN npm run configure
 
 # Install all dependencies for app.
 RUN npm install
