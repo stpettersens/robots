@@ -9,6 +9,9 @@ FROM saintpettersens/docker-nodejs:latest
 # Maintainer of this project.
 MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
 
+# Install `dig`.
+RUN apt-get update && apt-get install -y dnsutils
+
 # Expose the app on port 8075 ("BOTS").
 EXPOSE 8075
 
