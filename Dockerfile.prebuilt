@@ -22,11 +22,11 @@ WORKDIR /usr/src/app
 # Bundle app src
 COPY . /usr/src/app
 
-# Configure hostname for own robots.txt file.
-RUN npm run configure
-
 # Install all dependencies for app.
 RUN npm install
+
+# Configure hostname for own robots.txt file.
+RUN npm run configure
 
 # Deploy clientside JavaScript + CSS.
 RUN npm run dist

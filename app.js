@@ -8,15 +8,20 @@ Released under the MIT License.
 const express = require('express')
 const exphbs = require('express-handlebars')
 const path = require('path')
+const fs = require('fs-extra')
 const parser = require('./lib/parser')
 
 let app = express()
+const port = fs.readJsonSync('config.json').port
 app.engine('.hbs', exphbs({extname: 'hbs', defaultLayout: 'main'}))
 app.set('view engine', '.hbs')
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', function (req, res, next) {
-  res.render('index')
+  fs.readJson('robots.json', function (err, data) {
+    if (err) console.log(err)
+    res.render('index', { robots: data.robots })
+  })
 })
 
 app.get('/robots.txt', function (req, res) {
@@ -37,5 +42,5 @@ app.get('/submit', function (req, res) {
   })
 })
 
-console.info('robots frontend service listening on :8075 ("BOTS")')
-app.listen(8075)
+console.info(`robots frontend service listening on :${port} ("BOTS")`)
+app.listen(port)

@@ -15,7 +15,8 @@ const standard = require('gulp-standard')
 const nmp = 'node_modules'
 let distJS = [
   `${nmp}/jquery/dist/jquery.min.js`,
-  `${nmp}/bootstrap/dist/js/bootstrap.min.js`
+  `${nmp}/bootstrap/dist/js/bootstrap.min.js`,
+  `${nmp}/headjs/dist/1.0.0/head.load.min.js`
 ]
 
 let tp = 'target/release/robots'
@@ -45,7 +46,7 @@ gulp.task('standard', function () {
 
 gulp.task('js', function () {
   return gulp.src('clientside/*.js')
-  .pipe(removeLine({'robots.js': [14]}))
+  .pipe(removeLine({'robots.js': [18]}))
   .pipe(uglify())
   .pipe(jsmin())
   .pipe(trimLines())

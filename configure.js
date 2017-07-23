@@ -2,7 +2,7 @@
 
 const cp = require('child_process')
 const os = require('os')
-const fs = require('fs')
+const fs = require('fs-extra')
 
 let lookup = 'myip.opendns.com. resolver1.opendns.com'
 let robots = { robots: 'http://localhost/robots.txt' }
@@ -18,20 +18,21 @@ function displayUsage () {
 }
 
 function writeConfig (args) {
+  const port = fs.readJsonSync('config.json').port
   if (args.length === 2) {
     if (os.platform() === 'win32') {
       const r = cp.execSync(`nslookup ${lookup}`).toString()
       const ip = r.match(/\d{1,4}\.\d{1,4}\.\d{1,4}\.\d{1,4}$/gm)
-      robots.robots = prefix + ip[1].trim() + txt
+      robots.robots = prefix + ip[1].trim() + ':' + port + txt
     } else {
       lookup = lookup.replace('.com.', '.com')
       lookup = lookup.replace('r', '@r')
       const ip = cp.execSync(`dig +short ${lookup}`).toString()
-      robots.robots = prefix + ip.trim() + txt
+      robots.robots = prefix + ip.trim() + ':' + port + txt
     }
   } else if (args.length === 3) {
     if (args[2].search(/-h|--help/) !== -1) displayUsage()
-    robots.robots = prefix + args[2] + txt
+    robots.robots = prefix + args[2] + ':' + port + txt
   }
   fs.writeFileSync('robots.json', JSON.stringify(robots, null, 0) + '\n')
 }
