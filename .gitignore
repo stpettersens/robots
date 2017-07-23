@@ -8,3 +8,4 @@ public/js/dist/*.js
 core/robots
 core/robots.exe
 db/*.db
+*.7z
