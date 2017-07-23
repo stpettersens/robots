@@ -12,7 +12,7 @@ MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
 # Install dig, Node.js and UPX (for Rust core executable).
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get update && apt-get install -y dnsutils nodejs upx-ucl
-RUN echo "node $(node --version)" && echo "npm $(npm --version)"
+RUN echo "node $(node --version)" && echo "npm v$(npm --version)"
 RUN rustc --version && cargo --version
 RUN upx --version
 

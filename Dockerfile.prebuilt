@@ -9,6 +9,9 @@ FROM saintpettersens/docker-nodejs:latest
 # Maintainer of this project.
 MAINTAINER Sam Saint-Pettersen <s.stpettersen+github@gmail.com>
 
+# Check Node.js and npm versions.
+RUN echo "node $(node --version)" && echo "npm v$(npm --version)"
+
 # Install `dig`.
 RUN apt-get update && apt-get install -y dnsutils
 
