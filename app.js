@@ -11,8 +11,9 @@ const path = require('path')
 const fs = require('fs-extra')
 const parser = require('./lib/parser')
 
-let app = express()
 const port = fs.readJsonSync('config.json').port
+
+let app = express()
 app.engine('.hbs', exphbs({extname: 'hbs', defaultLayout: 'main'}))
 app.set('view engine', '.hbs')
 app.use(express.static(path.join(__dirname, 'public')))
