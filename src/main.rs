@@ -7,15 +7,33 @@ Released under the MIT License.
 mod robots;
 extern crate iron;
 extern crate params;
+extern crate regex;
+extern crate sqlite;
 use robots::RobotsFile;
 use iron::prelude::*;
 use iron::status;
 use params::Params;
+use regex::Regex;
+use std::fs::File;
+use std::path::Path;
 
 fn process_robots(robots: &RobotsFile) -> String {
-    println!("{:#?}", robots);
-    println!("{}", robots.get_lines());
-    format!("")
+    let db = "db/robots.db";
+    if !Path::new(db).exists() {
+        let _ = File::create(db);
+        let conn = sqlite::open(db).unwrap();
+        conn.execute("
+        CREATE TABLE robots (id TEXT, url TEXT, lines TEXT);"
+        ).unwrap();
+    }
+    let conn = sqlite::open(db).unwrap();
+    conn.iterate(&format!("SELECT id FROM robots WHERE id = {}", robots.get_id()), |pairs| {
+        for &(column, value) in pairs.iter() {
+            println!("{} = {}", column, value.unwrap());
+        }
+        true
+    }).unwrap();
+    String::new()
 }
 
 fn handle_robots(req: &mut Request) -> IronResult<Response> {
@@ -25,7 +43,7 @@ fn handle_robots(req: &mut Request) -> IronResult<Response> {
     &format!("{:?}", map["id"]), 
     &format!("{:?}", map["url"]),
     &format!("{:?}", map["lines"]));
-    //process_robots(&robots);
+    process_robots(&robots);
     Ok(Response::with((status::Ok, format!("{:?}", robots))))
 }
 

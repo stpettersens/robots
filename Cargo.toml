@@ -8,3 +8,4 @@ authors = ["Sam Saint-Pettersen <s.stpettersen+github@gmail.com>"]
 iron = "0.5.*"
 params = "0.6.0"
 regex = "0.2.2"
+sqlite = "0.23.4"
