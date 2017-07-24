@@ -8,7 +8,8 @@
     "start": "node app.js",
     "configure": "node configure.js",
     "build": "gulp build",
-    "dist": "gulp"
+    "dist": "gulp",
+    "clean": "gulp clean"
   },
   "author": "Sam Saint-Pettersen <s.stpettersen+github@gmail.com>",
   "license": "MIT",
@@ -19,6 +20,7 @@
     "gulp-jsmin": "^0.1.5",
     "gulp-remove-empty-lines": "^0.1.0",
     "gulp-remove-line": "^1.0.4",
+    "gulp-rimraf": "^0.2.1",
     "gulp-standard": "^10.0.0",
     "gulp-uglify": "^3.0.0",
     "headjs": "^1.0.3",

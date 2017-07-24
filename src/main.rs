@@ -14,18 +14,18 @@ use iron::prelude::*;
 use iron::status;
 use params::Params;
 use regex::Regex;
-use std::fs::File;
 use std::path::Path;
 
-fn process_robots(robots: &RobotsFile) -> String {
-    let db = "db/robots.db";
+fn create_database(db: &str) {
     if !Path::new(db).exists() {
-        let _ = File::create(db);
         let conn = sqlite::open(db).unwrap();
         conn.execute("
         CREATE TABLE robots (id TEXT, url TEXT, lines TEXT);"
         ).unwrap();
     }
+}
+
+fn process_robots(db: &str, robots: &RobotsFile) -> String {
     let conn = sqlite::open(db).unwrap();
     conn.iterate(&format!("SELECT id FROM robots WHERE id = {}", robots.get_id()), |pairs| {
         for &(column, value) in pairs.iter() {
@@ -43,11 +43,12 @@ fn handle_robots(req: &mut Request) -> IronResult<Response> {
     &format!("{:?}", map["id"]), 
     &format!("{:?}", map["url"]),
     &format!("{:?}", map["lines"]));
-    process_robots(&robots);
+    process_robots("db/robots.db", &robots);
     Ok(Response::with((status::Ok, format!("{:?}", robots))))
 }
 
 fn main() {
+    create_database("db/robots.db");
     println!("robots parsing service listening on :1010");
     Iron::new(Chain::new(handle_robots)).http("127.0.0.1:1010").unwrap();
 }

@@ -11,6 +11,7 @@ const rename = require('gulp-rename')
 const trimLines = require('gulp-remove-empty-lines')
 const removeLine = require('gulp-remove-line')
 const standard = require('gulp-standard')
+const clean = require('gulp-rimraf')
 
 const nmp = 'node_modules'
 let distJS = [
@@ -72,4 +73,17 @@ gulp.task('dist-css', function () {
   .pipe(gulp.dest('public/css/dist'))
 })
 
+gulp.task('clean-core', function () {
+  return gulp.src([target, 'target/', 'db/robots.db'])
+  .pipe(clean())
+})
+
+gulp.task('clean-dist', function () {
+  return gulp.src([
+    'public/js/dist/*.js', 'public/css/dist/*.css',
+    'public/js/*.js', 'public/css/*.css'])
+  .pipe(clean())
+})
+
+gulp.task('clean', ['clean-core', 'clean-all'])
 gulp.task('default', ['standard', 'js', 'css', 'dist-js', 'dist-css'])
