@@ -24,7 +24,7 @@
     "gulp-standard": "^10.0.0",
     "gulp-uglify": "^3.0.0",
     "headjs": "^1.0.3",
-    "jquery": "^2.2.4",
+    "jquery": "*",
     "shelljs": "^0.7.8"
   },
   "dependencies": {
